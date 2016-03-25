@@ -17,7 +17,7 @@ public class DeckTest {
 		Deck startingDeck = new Deck(startCards);
 		System.out.println("The deck before shuffling");
 		startingDeck.printCards();
-		Collections.shuffle(startingDeck.cards);
+		startingDeck.shuffle();
 		System.out.println("The deck after shuffling");
 		startingDeck.printCards();
 	}

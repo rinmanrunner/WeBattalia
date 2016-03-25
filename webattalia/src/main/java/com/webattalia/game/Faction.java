@@ -1,7 +1,5 @@
 package com.webattalia.game;
 
-import java.util.Random;
-
 public enum Faction {
 	NONE		("Light Grey",0xE0E0E0), 
 	CLOUDBORN 	("Yellow",0xFDD017),

@@ -19,6 +19,10 @@ public class Deck{
 			}
 		}
 	}
+	// Shuffle the deck of cards using the Collections class
+	public void shuffle(){
+		Collections.shuffle(cards);
+	}
 	//Prints out the cards in the deck to the screen
 	public void printCards(){
 		for(ListIterator<Card> j=cards.listIterator(); j.hasNext();)
@@ -27,5 +31,7 @@ public class Deck{
 		}
 		System.out.println("");
 	}
+	
+
 	
 }
