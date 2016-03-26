@@ -7,10 +7,25 @@
 	<name>WeBattalia</name>
 
 	<dependencies>
+		<!-- Spark -->
 		<dependency>
 			<groupId>com.sparkjava</groupId>
 			<artifactId>spark-core</artifactId>
 			<version>2.2</version>
 		</dependency>
+		
+		<!-- Freemarker TemplateEngine for Spark -->
+		<dependency>
+    		<groupId>com.sparkjava</groupId>
+    		<artifactId>spark-template-freemarker</artifactId>
+    		<version>2.3</version>
+		</dependency>
+		
+		<!-- Freemarker -->
+		<dependency>
+  			<groupId>org.freemarker</groupId>
+  			<artifactId>freemarker</artifactId>
+ 			<version>2.3.23</version>
+			</dependency>
 	</dependencies>
 </project>

@@ -11,7 +11,7 @@ public class DeckTest {
 	public static void main(String[] args){
 		List<Card> startCards = new ArrayList<Card>();
 		for(int i=0;i<5;i++){startCards.add(new Supply());}
-		for(int i=0;i<3;i++){startCards.add(new Friman());}
+		for(int i=0;i<3;i++){startCards.add(new Frimen());}
 		startCards.add(new Chief());
 		startCards.add(new Priest());
 		Deck startingDeck = new Deck(startCards);
