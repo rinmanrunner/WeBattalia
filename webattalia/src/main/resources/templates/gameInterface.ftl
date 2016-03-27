@@ -107,22 +107,20 @@
 				<div id="playerHand">
 					<ul id="playerHandList">
 						<!-- Base Hand -->
-						<li id="c1" class="${card1faction}" title="${card1title}" ondragstart="drag(event)" draggable="true"><img src="http://www.nickmacholl.com/webattalia/svg/${card1type}.svg" onerror="this.onerror=null; this.src='http://www.nickmacholl.com/webattalia/png/${card1type}.png">
-						<li id="c2" class="${card2faction}" title="${card2title}" ondragstart="drag(event)" draggable="true"><img src="http://www.nickmacholl.com/webattalia/svg/${card2type}.svg" onerror="this.onerror=null; this.src='http://www.nickmacholl.com/webattalia/png/${card2type}.png">
-						<li id="c3" class="${card3faction}" title="${card3title}" ondragstart="drag(event)" draggable="true"><img src="http://www.nickmacholl.com/webattalia/svg/${card3type}.svg" onerror="this.onerror=null; this.src='http://www.nickmacholl.com/webattalia/png/${card3type}.png">
-						<li id="c4" class="${card4faction}" title="${card4title}" ondragstart="drag(event)" draggable="true"><img src="http://www.nickmacholl.com/webattalia/svg/${card4type}.svg" onerror="this.onerror=null; this.src='http://www.nickmacholl.com/webattalia/png/${card4type}.png">
-						<li id="c5" class="${card5faction}" title="${card5title}" ondragstart="drag(event)" draggable="true"><img src="http://www.nickmacholl.com/webattalia/svg/${card5type}.svg" onerror="this.onerror=null; this.src='http://www.nickmacholl.com/webattalia/png/${card5type}.png">
-						<li id="c6" class="${card6faction}" title="${card6title}" ondragstart="drag(event)" draggable="true"><img src="http://www.nickmacholl.com/webattalia/svg/${card6type}.svg" onerror="this.onerror=null; this.src='http://www.nickmacholl.com/webattalia/png/${card6type}.png">
+						<li id="c1" class="${card1faction}" cardtype="${card1type}" title="${card1title}" ondragstart="drag(event)" draggable="true"><img src="http://www.nickmacholl.com/webattalia/svg/${card1type}.svg" onerror="this.onerror=null; this.src='http://www.nickmacholl.com/webattalia/png/${card1type}.png">
+						<li id="c2" class="${card2faction}" cardtype="${card2type}" title="${card2title}" ondragstart="drag(event)" draggable="true"><img src="http://www.nickmacholl.com/webattalia/svg/${card2type}.svg" onerror="this.onerror=null; this.src='http://www.nickmacholl.com/webattalia/png/${card2type}.png">
+						<li id="c3" class="${card3faction}" cardtype="${card3type}" title="${card3title}" ondragstart="drag(event)" draggable="true"><img src="http://www.nickmacholl.com/webattalia/svg/${card3type}.svg" onerror="this.onerror=null; this.src='http://www.nickmacholl.com/webattalia/png/${card3type}.png">
+						<li id="c4" class="${card4faction}" cardtype="${card4type}" title="${card4title}" ondragstart="drag(event)" draggable="true"><img src="http://www.nickmacholl.com/webattalia/svg/${card4type}.svg" onerror="this.onerror=null; this.src='http://www.nickmacholl.com/webattalia/png/${card4type}.png">
+						<li id="c5" class="${card5faction}" cardtype="${card5type}" title="${card5title}" ondragstart="drag(event)" draggable="true"><img src="http://www.nickmacholl.com/webattalia/svg/${card5type}.svg" onerror="this.onerror=null; this.src='http://www.nickmacholl.com/webattalia/png/${card5type}.png">
+						<li id="c6" class="${card6faction}" cardtype="${card6type}" title="${card6title}" ondragstart="drag(event)" draggable="true"><img src="http://www.nickmacholl.com/webattalia/svg/${card6type}.svg" onerror="this.onerror=null; this.src='http://www.nickmacholl.com/webattalia/png/${card6type}.png">
 						<!-- Cohort -->
+						<!-- Empty Hand Placeholder -->
+						<li id="emptyHand">Your hand is empty.</li>
 					</ul>
 				</div>
 				<!-- Player's Shelter (discard) -->
-				<div id="playerShelter">
-					Shelter
-				</div>
+				<div id="playerShelter" title="Shelter"></div>
 				<!-- Player's Nation (draw) -->
-				<div id="playerNation">
-					Nation
-				</div>
+				<div id="playerNation" title="Nation"></div>
 			</div>
 </@layout.masterTemplate>

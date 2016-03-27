@@ -120,7 +120,7 @@ html, body{
 #actionLine{
 	position: relative;
 	text-align: center;
-	border: 2px dashed lightgray;
+	border: 2px dashed darkgray;
 	color: white;
 	width: calc(100%-16px);
 	height: 100%;
@@ -206,6 +206,7 @@ html, body{
 	margin-top: -20px;
 	margin-left: 2px;
 	margin-right: 2px;
+	line-height: 6vw;
 }
 
 #playerHand ul li img, #actionLine ul li img{
@@ -216,9 +217,7 @@ html, body{
 
 #playerShelter, #playerNation{
 	float: left;
-	background-color: brown;
-	color: lightgray;
-	top: 0;
+	background-color: dimgray;
 	text-align: center;
 	width: 6vw;
 	height: 6vw;
@@ -227,4 +226,25 @@ html, body{
 	min-width: 50px;
 	max-height: 150px;
 	max-width: 150px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 5%;
+}
+
+#playerHand ul #emptyHand{
+	display: none;
+	color: lightgray;
+	font-weight: bold;
+	width: 100%;
+	font-size: 1.5em;
+}
+
+#playerShelter{
+	margin-left: 8px;
+	background-image: url("http://www.nickmacholl.com/webattalia/svg/shelter.svg");
+}
+
+#playerNation{
+	background-image: url("http://www.nickmacholl.com/webattalia/svg/nation.svg");
 }

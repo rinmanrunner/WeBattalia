@@ -1,7 +1,6 @@
 .emberian{
 	background-color: #B73339;
 }
-
 .islander{
 	background-color: #518594;
 }
@@ -27,27 +26,21 @@
     transition-duration: 0.1s;
     transition-timing-function: ease-in;
 }
-
 .emberian:hover{
 	background-color: #C55B60;
 }
-
 .islander:hover{
 	background-color: #739DA9;
 }
-
 .barfolk:hover{
 	background-color: #7B996F;
 }
-
 .cloudborn:hover{
 	background-color: #E4B35B;
 }
-
 .none:hover{
 	background-color: #999999;
 }
-
 .artefact:hover{
 	background-color: #AC895B;
 }
