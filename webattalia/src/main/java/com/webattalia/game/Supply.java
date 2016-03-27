@@ -5,7 +5,6 @@ public class Supply extends Unit {
 	// They can only be purchased with units
 	// Supply have strength 0, and can move heroes 1
 	public Supply(){
-		super(Faction.NONE, new Cost[]{Cost.NONE}, 0, 1);
-		this.name = "Supply";
+		super(Faction.NONE, CardType.SUPPLY, 0, 1);
 	}
 }

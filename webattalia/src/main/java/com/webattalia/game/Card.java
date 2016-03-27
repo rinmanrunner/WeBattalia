@@ -4,16 +4,19 @@ import java.util.Random;
 
 public abstract class Card {
 	// The card class has a faction and cost
-	public String name;
+	public CardType type;
 	public Faction faction;
-	public Cost[] cost;
-	public Card(Faction faction, Cost[] cost){
-		this.faction = faction;
-		this.cost    = cost;
-	}
-	public Card(Cost[] cost){
+	private Cost cost;
+	
+	public Card(CardType type){
 		this.faction = selectRandomFaction();
-		this.cost    = cost;
+		this.type    = type;
+		this.cost    = new Cost(type);
+	}
+	public Card(Faction faction, CardType type){
+		this.type    = type;
+		this.cost    = new Cost(type);
+		this.faction = faction;
 	}
 	public Faction selectRandomFaction(){
 		// Select random faction
@@ -30,5 +33,12 @@ public abstract class Card {
 				return Faction.EMBERIAN;
 		}
 		return Faction.NONE;
+	}
+	public Cost getCost(){
+		setCost();
+		return cost;
+	}
+	private void setCost(){
+		this.cost =  new Cost(this.type);
 	}
 }
