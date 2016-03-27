@@ -5,13 +5,12 @@ public class Priest extends Unit{
 	// Priest cost 4 supply
 	// Priest has strength 3
 	// Priest does not move heroes
-	public Priest(Faction faction){
-		super(faction, new Cost[]{Cost.SUPPLY, Cost.SUPPLY, Cost.SUPPLY, Cost.SUPPLY}, 3, 0);
-		this.name = "Priest";
-	}
 	// Select random faction
 	public Priest(){
-		super(new Cost[]{Cost.SUPPLY, Cost.SUPPLY, Cost.SUPPLY, Cost.SUPPLY}, 3, 0);
-		this.name = "Priest";
+		super(CardType.PRIEST, 3, 0);
 	}
+	public Priest(Faction faction){
+		super(faction, CardType.PRIEST, 3, 0);
+	}
+
 }

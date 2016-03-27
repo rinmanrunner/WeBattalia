@@ -12,7 +12,7 @@ import java.util.Map;
 import com.webattalia.game.Card;
 import com.webattalia.game.Chief;
 import com.webattalia.game.Deck;
-import com.webattalia.game.Frimen;
+import com.webattalia.game.Friman;
 import com.webattalia.game.Priest;
 import com.webattalia.game.Supply;
 
@@ -57,7 +57,7 @@ public class Main {
     		List<Card> hand = new ArrayList<Card>();
     		
     		for(int i=0;i<5;i++){startCards.add(new Supply());}
-    		for(int i=0;i<3;i++){startCards.add(new Frimen());}
+    		for(int i=0;i<3;i++){startCards.add(new Friman());}
     		
     		startCards.add(new Chief());
     		startCards.add(new Priest());
@@ -74,23 +74,23 @@ public class Main {
     		// Create a data map for the card information.
         	Map<String, Object> map = new HashMap<>();
         	map.put("card1faction", hand.get(0).faction.name().toLowerCase());
-        	map.put("card1type", hand.get(0).name.toLowerCase());
-        	map.put("card1title", hand.get(0).faction.name() + " " + hand.get(0).name);
+        	map.put("card1type", hand.get(0).type.name().toLowerCase());
+        	map.put("card1title", hand.get(0).faction.name() + " " + hand.get(0).type.name().toLowerCase());
         	map.put("card2faction", hand.get(1).faction.name().toLowerCase());
-        	map.put("card2type", hand.get(1).name.toLowerCase());
-        	map.put("card2title", hand.get(1).faction.name() + " " + hand.get(1).name);
+        	map.put("card2type", hand.get(1).type.name().toLowerCase());
+        	map.put("card2title", hand.get(1).faction.name() + " " + hand.get(1).type.name().toLowerCase());
         	map.put("card3faction", hand.get(2).faction.name().toLowerCase());
-        	map.put("card3type", hand.get(2).name.toLowerCase());
-        	map.put("card3title", hand.get(2).faction.name() + " " + hand.get(2).name);
+        	map.put("card3type", hand.get(2).type.name().toLowerCase());
+        	map.put("card3title", hand.get(2).faction.name() + " " + hand.get(2).type.name().toLowerCase());
         	map.put("card4faction", hand.get(3).faction.name().toLowerCase());
-        	map.put("card4type", hand.get(3).name.toLowerCase());
-        	map.put("card4title", hand.get(3).faction.name() + " " + hand.get(3).name);
+        	map.put("card4type", hand.get(3).type.name().toLowerCase());
+        	map.put("card4title", hand.get(3).faction.name() + " " + hand.get(3).type.name().toLowerCase());
         	map.put("card5faction", hand.get(4).faction.name().toLowerCase());
-        	map.put("card5type", hand.get(4).name.toLowerCase());
-        	map.put("card5title", hand.get(4).faction.name() + " " + hand.get(4).name);
+        	map.put("card5type", hand.get(4).type.name().toLowerCase());
+        	map.put("card5title", hand.get(4).faction.name() + " " + hand.get(4).type.name().toLowerCase());
         	map.put("card6faction", hand.get(5).faction.name().toLowerCase());
-        	map.put("card6type", hand.get(5).name.toLowerCase());
-        	map.put("card6title", hand.get(5).faction.name() + " " + hand.get(5).name);
+        	map.put("card6type", hand.get(5).type.name().toLowerCase());
+        	map.put("card6title", hand.get(5).faction.name() + " " + hand.get(5).type.name().toLowerCase());
         	
         	// Add the version information to the data map.
         	map.put("version", version);
