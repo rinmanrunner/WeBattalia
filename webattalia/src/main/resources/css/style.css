@@ -1,0 +1,50 @@
+html{
+	font-family: Helvetica, Arial, Sans-Serif;
+}
+
+.banner{
+	position: fixed;
+	background-color: gold;
+	font-size: 1em;
+	text-align: center;
+	font-family: monospace;
+	color: brown;
+	width: 100%;
+	left: 0;
+}
+
+#playerArea{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding-bottom: 1em;
+	left: 0;
+}
+
+#playerHand{
+	position: relative;
+	text-align: center;
+	margin: auto;
+	width: 40%;
+	padding: 0;
+}
+
+#playerHand li{
+	cursor: pointer;
+	display: inline-block;
+	width: 6vw;
+	height: 6vw;
+	min-height: 50px;
+	min-width: 50px;
+	max-height: 150px;
+	max-width: 150px;
+	margin-top: -20px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+#playerHand li img{
+	pointer-events: none;
+	max-height: 100%;
+	max-width: 100%;
+}

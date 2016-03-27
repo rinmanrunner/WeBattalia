@@ -1,0 +1,59 @@
+/*
+ *
+ *	Card Faction Definitions
+ *
+ */
+ 
+.emberian{
+	background-color: #B73339;
+}
+
+.islander{
+	background-color: #518594;
+}
+.barfolk{
+	background-color: #5B804C;
+}
+.cloudborn{
+	background-color: #DEA033;
+}
+.none{
+	background-color: #808080;
+}
+.artefact{
+	background-color: #986C33;
+}
+.emberian, .islander, .barfolk, .cloudborn, .none, .artefact{
+	background-image: url("http://www.nickmacholl.com/webattalia/svg/cardframe.svg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 0.2vw;
+    transition-property: background-color;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in;
+}
+
+.emberian:hover{
+	background-color: #C55B60;
+}
+
+.islander:hover{
+	background-color: #739DA9;
+}
+
+.barfolk:hover{
+	background-color: #7B996F;
+}
+
+.cloudborn:hover{
+	background-color: #E4B35B;
+}
+
+.none:hover{
+	background-color: #999999;
+}
+
+.artefact:hover{
+	background-color: #AC895B;
+}
