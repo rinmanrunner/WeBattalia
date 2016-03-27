@@ -2,6 +2,14 @@ html{
 	font-family: Helvetica, Arial, Sans-Serif;
 }
 
+html, body{
+	background-color: DimGray ;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
 .banner{
 	position: fixed;
 	background-color: gold;
@@ -13,23 +21,180 @@ html{
 	left: 0;
 }
 
+#leaderboard{
+	position: fixed;
+	background-color: darkgray;
+	left: 0;
+	top: 1em;
+	height: 50px;
+	width: 100%;
+	text-align: justify;
+}
+
+#leaderboard ul{
+	display: table;
+	position: relative;
+	list-style: none;
+	text-align: center;
+	margin: auto;
+	width: 100%;
+	padding: 0;
+}
+
+#leaderboard ul li{
+	display: table-cell;
+	text-align: center;
+	height: 50px;
+	width: 25%;
+	background-color: lightgray;
+}
+
+#emberianPlayer{
+	background-color: #92282D;
+}
+
+#emberianPlayer:hover{
+	background-color: #B73339;
+}
+
+#cloudbornPlayer{
+	background-color: #B18028;
+}
+
+#cloudbornPlayer:hover{
+	background-color: #DEA033;
+}
+
+#barfolkPlayer{
+	background-color: #48663C;
+}
+
+#barfolkPlayer:hover{
+	background-color: #5b804c;
+}
+
+#islanderPlayer{
+	background-color: #406A76;
+}
+
+#islanderPlayer:hover{
+	background-color: #518594;
+}
+
+#emberianPlayer, #cloudbornPlayer, #barfolkPlayer, #islanderPlayer{
+	cursor: pointer;
+	text-align: left;
+	color: white;
+	line-height: 50px;
+	white-space: nowrap;
+	transition-property: background-color;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in;
+}
+
+#emberianPlayer p, #cloudbornPlayer p, #barfolkPlayer p, #islanderPlayer p{
+	padding: 0;
+	margin: 0;
+}
+
+#emberianPlayer img, #cloudbornPlayer img, #barfolkPlayer img, #islanderPlayer img{
+	float: left;
+	height: 36px;
+	width: 36px;
+	margin-left: 5px;
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border-radius: 50%;
+	border: 2px solid white;
+}
+
+.playerScore{
+	float: right;
+	display: inline-block;
+	margin-right: 10px;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+#actionLine{
+	position: relative;
+	text-align: center;
+	border: 2px dashed lightgray;
+	color: white;
+	width: calc(100%-16px);
+	height: 100%;
+	margin-left: 8px;
+	margin-right: 8px;
+	margin-top: 8px;
+}
+
+#actionLine ul li{
+	cursor: pointer;
+	display: inline-block;
+	width: 6vw;
+	height: 6vw;
+	min-height: 50px;
+	min-width: 50px;
+	max-height: 150px;
+	max-width: 150px;
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-top: 5px;
+}
+
+#board{
+	list-style: none;
+	margin-top: calc(1em + 80px);
+	margin-left: 8px;
+	padding: 0;
+	font-size: 0;
+}
+
+#board li{
+	cursor: pointer;
+	display: inline-block;
+	width: 8vh;
+	height: 8vh;
+	min-height: 50px;
+	min-width: 50px;
+	max-height: 150px;
+	max-width: 150px;
+	background-color: lightgray;
+	border: 2px solid gray;
+	margin: 2px;
+}
+
+#board li:hover{
+	border: 2px solid white;
+}
+
 #playerArea{
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 	padding-bottom: 1em;
 	left: 0;
-}
+	background-color: darkgray;
+	border-top: 5px solid darkgray;
+}	
 
 #playerHand{
+	display: inline-block;
 	position: relative;
 	text-align: center;
 	margin: auto;
-	width: 40%;
+	width: 50%;
+	padding: 0;
+	background-color: lightgray;
+}
+
+#playerHand ul, #actionLine ul{
+	margin: 0;
 	padding: 0;
 }
 
-#playerHand li{
+#playerHand ul li{
 	cursor: pointer;
 	display: inline-block;
 	width: 6vw;
@@ -43,8 +208,23 @@ html{
 	margin-right: 2px;
 }
 
-#playerHand li img{
+#playerHand ul li img, #actionLine ul li img{
 	pointer-events: none;
 	max-height: 100%;
 	max-width: 100%;
+}
+
+#playerShelter, #playerNation{
+	float: left;
+	background-color: brown;
+	color: lightgray;
+	top: 0;
+	text-align: center;
+	width: 6vw;
+	height: 6vw;
+	margin-right: 15px;
+	min-height: 50px;
+	min-width: 50px;
+	max-height: 150px;
+	max-width: 150px;
 }

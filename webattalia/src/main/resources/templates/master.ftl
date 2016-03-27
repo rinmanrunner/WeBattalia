@@ -6,6 +6,7 @@
 			<title>WeBattalia | Viewing Match</title>
 			<link rel="stylesheet" type="text/css" href="http://www.nickmacholl.com/webattalia/css/style.css">
 			<link rel="stylesheet" type="text/css" href="http://www.nickmacholl.com/webattalia/css/cards.css">
+			<script src="http://www.nickmacholl.com/webattalia/scripts/webattalia.js"></script>
 		</head>
 		
 		<header class="banner" style="top:0">
@@ -17,7 +18,7 @@
 		</body>
 		
 		<footer class="banner" style="bottom:0">
-			Battalia is a reserved trademark of <a href="http://fantasmagoria.bg/" target="_blank">Fantasmagoria Ltd</a>; WeBattalia is a fan creation and is no way affiliated with Fantasmagoria.
+			WeBattalia is fan made and not affiliated with <a href="http://fantasmagoria.bg/" target="_blank">Fantasmagoria Ltd</a>.
 		</footer>
     </html>
 </#macro>

@@ -92,11 +92,6 @@ public class Main {
         	map.put("card6type", hand.get(5).name.toLowerCase());
         	map.put("card6title", hand.get(5).faction.name() + " " + hand.get(5).name);
         	
-        	// Add some fake profile stuff to the map.
-        	map.put("playerName", "TheCowboy");
-        	map.put("playerFaction", "Emberians");
-        	map.put("playerVP", "8");
-        	
         	// Add the version information to the data map.
         	map.put("version", version);
         	map.put("codename", codename);
