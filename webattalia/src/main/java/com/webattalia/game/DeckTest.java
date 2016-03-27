@@ -1,6 +1,7 @@
 package com.webattalia.game;
 
 import java.util.*;
+import java.util.stream.*;
 
 public class DeckTest {
 	Deck deck;
@@ -20,5 +21,27 @@ public class DeckTest {
 		startingDeck.shuffle();
 		System.out.println("The deck after shuffling");
 		startingDeck.printCards();
+		Deck playerHand = new Deck(startingDeck.deal(6));
+		System.out.println("The player's starting hand");
+		playerHand.printCards();
+		System.out.println("The deck after dealing");
+		startingDeck.printCards();
+		List<CardType> allCards = Arrays.asList(CardType.values());
+		System.out.println("Player Hand: " + playerHand.getTypes());
+		for(ListIterator<CardType> i=allCards.listIterator();i.hasNext();){
+	    	CardType cardToBuy = i.next();
+			Cost cardCost = new Cost(cardToBuy);
+			boolean isCovered = cardCost.isCovered(playerHand.cards);
+			//System.out.println("Cost of " + cardToBuy + ": " + cardCost.getPriceList());
+			//System.out.println("Cost Covered?: " + isCovered);
+			if(isCovered){
+				System.out.println("You can buy " + cardToBuy);
+			}
+			else{
+				//System.out.println("You cannot buy " + cardToBuy);	
+			}
+	    }
+
+
 	}
 }

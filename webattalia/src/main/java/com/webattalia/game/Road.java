@@ -3,15 +3,13 @@ package com.webattalia.game;
 public class Road extends Card {
 	public boolean[] connections;//North, East, South, West
 	
-	public Road(Faction faction, Cost[] cost, boolean[] connections)
+	public Road(Faction faction, CardType type, boolean[] connections)
 	{
-		super(faction, cost);
+		super(faction, type);
 		this.connections = connections;
-		this.name = "Road";
 	}
-	public Road(Cost[] cost, boolean[] connections){
-		super(cost);
+	public Road(CardType type, boolean[] connections){
+		super(type);
 		this.connections = connections;
-		this.name = "Road";
 	}
 }
