@@ -54,9 +54,7 @@ function drop(ev) {
 	handList = document.getElementById("playerHandList");
 	if(handList.childElementCount <= 1){
 		document.getElementById("emptyHand").style.display = "inline";
-		document.getElementById("playerHand").style.backgroundColor = "darkgray";
 	}else{
 		document.getElementById("emptyHand").style.display = "none";
-		document.getElementById("playerHand").style.backgroundColor = "lightgray";
 	}
 }

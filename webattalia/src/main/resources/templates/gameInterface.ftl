@@ -1,7 +1,6 @@
 <#import "master.ftl" as layout />
 
 <@layout.masterTemplate title="WeBattalia Game">
-			<!-- Player Leaderboard -->
 			<div id="leaderboard">
 				<ul>
 					<!-- First Player -->
@@ -38,71 +37,77 @@
 					</li>
 				</ul>
 			</div>
-			<!-- Game Board -->
-			<ul id="board">
-				<!-- First Row -->
-				<li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li></li><br>
-				<!-- Second Row -->
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li></li><br>
-				<!-- Third Row -->
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li></li><br>
-				<!-- Fourth Row -->
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li></li><br>
-				<!-- Fifth Row -->
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li></li><br>
-				<!-- Sixth Row -->
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li></li><br>
-				<!-- Seventh Row -->
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li>
-				</li><li></li><br>
-			</ul>
-			<div id="actionLine" ondrop="drop(event)" ondragover="allowDrop(event)">
-				<ul id="actionList">
-				</ul>
+			<div id="playArea">
+				<div id="board">
+					<ul>
+						<!-- First Row -->
+						<li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li></li><br>
+						<!-- Second Row -->
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li></li><br>
+						<!-- Third Row -->
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li></li><br>
+						<!-- Fourth Row -->
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li></li><br>
+						<!-- Fifth Row -->
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li></li><br>
+						<!-- Sixth Row -->
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li></li><br>
+						<!-- Seventh Row -->
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li>
+						</li><li></li><br>
+					</ul>
+				</div>
+				<div id="market"></div>
+				<div id="build"></div>
+				<div id="storage"></div>
+				<!-- The Action Line -->
+				<div id="actionLine" ondrop="drop(event)" ondragover="allowDrop(event)">
+					<ul id="actionList">
+					</ul>
+				</div>
 			</div>
-			<!-- Player's Area -->
-			<div id=playerArea ondrop="drop(event)" ondragover="allowDrop(event)">
+			<div id="playerArea" ondrop="drop(event)" ondragover="allowDrop(event)">
 				<!-- Player's Hand -->
 				<div id="playerHand">
 					<ul id="playerHandList">
