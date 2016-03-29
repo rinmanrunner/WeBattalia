@@ -3,10 +3,10 @@ package com.webattalia.game;
 public enum Faction {
 	NONE		("Light Grey",0xE0E0E0), 
 	CLOUDBORN 	("Yellow",0xFDD017),
-	ISLANDERS  	("Blue", 0x2B60DE),
+	ISLANDER  	("Blue", 0x2B60DE),
 	BARFOLK     ("Green",0x4AA02C),			
-	EMBERIANS   ("Red",0x7D0541),
-	RUNEGUARDS  ("Black",0x302217),
+	EMBERIAN   ("Red",0x7D0541),
+	RUNEGUARD  ("Black",0x302217),
 	UNBOUND     ("Dark Grey",0x544E4F);
 	
 	private final String colorStr;

@@ -24,11 +24,11 @@ public abstract class Card {
 			case 1:
 				return Faction.CLOUDBORN;
 			case 2:
-				return Faction.ISLANDERS;
+				return Faction.ISLANDER;
 			case 3:
 				return Faction.BARFOLK;
 			case 4:
-				return Faction.EMBERIANS;
+				return Faction.EMBERIAN;
 		}
 		return Faction.NONE;
 	}
