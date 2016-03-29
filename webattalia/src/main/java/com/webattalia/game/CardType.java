@@ -19,5 +19,6 @@ public enum CardType {
 	CITY_ONE,
 	CITY_TWO,
 	CITY_THREE,
-	CITY_FOUR
+	CITY_FOUR,
+	WILD
 }

@@ -11,10 +11,10 @@ public class DeckTest {
 	
 	public static void main(String[] args){
 		List<Card> startCards = new ArrayList<Card>();
-		for(int i=0;i<5;i++){startCards.add(new Supply());}
-		for(int i=0;i<3;i++){startCards.add(new Friman());}
-		startCards.add(new Chief());
-		startCards.add(new Priest());
+		for(int i=0;i<5;i++){startCards.add(new Unit.Supply());}
+		for(int i=0;i<3;i++){startCards.add(new Unit.Friman());}
+		startCards.add(new Unit.Chief());
+		startCards.add(new Unit.Priest());
 		Deck startingDeck = new Deck(startCards);
 		System.out.println("The deck before shuffling");
 		startingDeck.printCards();
@@ -26,22 +26,44 @@ public class DeckTest {
 		playerHand.printCards();
 		System.out.println("The deck after dealing");
 		startingDeck.printCards();
-		List<CardType> allCards = Arrays.asList(CardType.values());
+		List<Card> allCards = Arrays.asList(new Unit.Friman(),new Unit.Chief(),
+				new Unit.Priest(), new Unit.Lord(), new Artefact.Tool(), 
+				new Artefact.Weapon(),new Artefact.Amulet(), new Artefact.Title(),
+				new Artefact.Scroll(), new Artefact.Tent(), new Artefact.Horse());
 		System.out.println("Player Hand: " + playerHand.getTypes());
-		for(ListIterator<CardType> i=allCards.listIterator();i.hasNext();){
-	    	CardType cardToBuy = i.next();
-			Cost cardCost = new Cost(cardToBuy);
-			boolean isCovered = cardCost.isCovered(playerHand.cards);
+		for(ListIterator<Card> i=allCards.listIterator();i.hasNext();){
+	    	Card cardToBuy = i.next();
+	    	boolean isCovered = cardToBuy.cost().isCovered(playerHand.cards);
 			//System.out.println("Cost of " + cardToBuy + ": " + cardCost.getPriceList());
 			//System.out.println("Cost Covered?: " + isCovered);
 			if(isCovered){
-				System.out.println("You can buy " + cardToBuy);
+				System.out.println("You can buy " + cardToBuy.type());
 			}
 			else{
 				//System.out.println("You cannot buy " + cardToBuy);	
 			}
 	    }
-
+//		List<Action> allActions = Arrays.asList(Action.values());
+//		for(ListIterator<Action> j=allActions.listIterator();j.hasNext();){
+//	    	Action action = j.next();
+//			Cost actionCost = new Cost(action);
+//			boolean isCovered = actionCost.isCovered(playerHand.cards);
+//			//System.out.println("Cost of " + cardToBuy + ": " + cardCost.getPriceList());
+//			//System.out.println("Cost Covered?: " + isCovered);
+//			if(isCovered){
+//				System.out.println("You can " + action);
+//			}
+//			else{
+//				//System.out.println("You cannot buy " + cardToBuy);	
+//			}
+//	    }		
+		int startDay = 9;
+		Oracle o = new Oracle(startDay);
+		System.out.println("Day " + startDay);
+		System.out.println("Match: " +  o.match() + " Illuminated: " + o.illuminated());
+		o.advance();
+		System.out.println("Day " + (startDay+1));		
+		System.out.println("Match: " +  o.match() + " Illuminated: " + o.illuminated());
 
 	}
 }

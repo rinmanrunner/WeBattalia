@@ -5,8 +5,7 @@ import java.util.*;
 public class Deck{
 	// A deck is composed of an array of cards
 	public List<Card> cards;
-	private List<CardType> types;
-	
+
 	public Deck(List<Card> cards){
 		this.cards = cards;
 	}
@@ -41,19 +40,15 @@ public class Deck{
 		}
 		return outCards;
 	}
-	//Set the cardType of every card in the deck
-	private void setTypes(){
-		List<CardType> t = new ArrayList<CardType>();
-		for(ListIterator<Card> i=cards.listIterator(); i.hasNext();)
-		{
-			t.add(i.next().type);
-		}
-		types = t;
-	}
 	
 	//Get cardType of every card in the deck
 	public List<CardType> getTypes(){
-		setTypes();
+		//Set the cardType of every card in the deck
+		List<CardType> types = new ArrayList<CardType>();
+		for(ListIterator<Card> i=cards.listIterator(); i.hasNext();)
+		{
+			types.add(i.next().type());
+		}
 		return types;
 	}
 	// Remove first card with specified faction. If faction doesn't exist, deal top card.
@@ -73,11 +68,9 @@ public class Deck{
 	public void printCards(){
 		for(ListIterator<Card> j=cards.listIterator(); j.hasNext();)
 		{
-			System.out.print(cards.get(j.nextIndex()).faction.getColor() + " " + j.next().type + ", ");
+			System.out.print(cards.get(j.nextIndex()).faction.getColor() + " " + j.next().type() + ", ");
 		}
 		System.out.println("");
 	}
-	
 
-	
 }
