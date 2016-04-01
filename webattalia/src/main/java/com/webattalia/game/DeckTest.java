@@ -43,9 +43,9 @@ public class DeckTest {
 				//System.out.println("You cannot buy " + cardToBuy);	
 			}
 	    }
-//		List<Action> allActions = Arrays.asList(Action.values());
-//		for(ListIterator<Action> j=allActions.listIterator();j.hasNext();){
-//	    	Action action = j.next();
+//		List<ActionType> allActions = Arrays.asList(ActionType.values());
+//		for(ListIterator<ActionType> j=allActions.listIterator();j.hasNext();){
+//	    	ActionType action = j.next();
 //			Cost actionCost = new Cost(action);
 //			boolean isCovered = actionCost.isCovered(playerHand.cards);
 //			//System.out.println("Cost of " + cardToBuy + ": " + cardCost.getPriceList());
@@ -64,6 +64,12 @@ public class DeckTest {
 		o.advance();
 		System.out.println("Day " + (startDay+1));		
 		System.out.println("Match: " +  o.match() + " Illuminated: " + o.illuminated());
-
+		
+		System.out.println("Road Test");
+		Road.Tee roadTest = new Road.Tee(Faction.BARFOLK);
+        roadTest.showConnections();
+		System.out.println("Rotate CCW: ");
+		roadTest.rotateConnections(-1);
+		roadTest.showConnections();
 	}
 }

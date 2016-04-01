@@ -1,6 +1,6 @@
 package com.webattalia.game;
 
-public enum Action {
+public enum ActionType {
 	SUMMON_HERO,
 	UPGRADE_TO_CITY_TWO,
 	UPGRADE_TO_CITY_THREE,

@@ -3,9 +3,9 @@ package com.webattalia.game;
 import java.util.*;
 
 public class Cost {
-	//User sets the cardType or Action
+	//User sets the cardType or ActionType
 //	private CardType cardType;
-//	private Action action;
+//	private ActionType action;
 	private List<CardType> priceList;
 	
 	public Cost(List<CardType> priceList){
@@ -15,7 +15,7 @@ public class Cost {
 //		this.cardType = c;
 //		this.action = null;
 //	}
-//	public Cost(Action a){
+//	public Cost(ActionType a){
 //		this.action = a;
 //		this.cardType = null;
 //	}
@@ -24,11 +24,11 @@ public class Cost {
 //		this.cardType = c;
 //		this.action = null;
 //	}
-//	public void setAction(Action a){
+//	public void setAction(ActionType a){
 //		this.cardType = null;
 //		this.action = a;
 //	}
-	//priceList is determined by the Cost object's cardType or Action
+	//priceList is determined by the Cost object's cardType or ActionType
 	public List<CardType> getPriceList(){
 		return priceList;
 	}
