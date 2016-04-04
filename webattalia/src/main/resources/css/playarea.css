@@ -1,0 +1,124 @@
+#playArea{
+  position: absolute;
+  top: calc(6vh + 1em);
+  left: 0;
+  height: 80vh;
+  width: 100%;
+  line-width: 72vh;
+}
+
+
+#greatartefacts{
+	float: left;
+	height: 63vh;
+	margin-top: 1vh;
+	margin-left: 1vh;
+	background-color: green;
+	width: 10vh;
+}
+
+#board{
+	float: left;
+	height: 63vh;
+	width: 63vh;
+	margin-left: 1vh;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+	font-size: 0;
+	background-image: url("http://www.nickmacholl.com/webattalia/svg/gameboard.svg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#board ul{
+	list-style: none;
+	padding: 0;
+}
+
+#board ul li{
+	cursor: pointer;
+	display: inline-block;
+	width: 9vh;
+	height: 9vh;
+	box-sizing: border-box;
+	border: 1px solid dimgray;
+}
+
+#market{
+	display: block;
+	height: 53vh;
+	margin-top: 1vh;
+	margin-left: 76vh;
+	margin-right: 1vh;
+}
+
+#leftmarket{
+	float: left;
+	height: 52vh;
+	background-color: chocolate;
+	width: 10vh;
+}
+
+#topmarket{
+  background-color: gold;
+  height: 10vh;
+  margin-left: 11vh;
+}
+
+#centermarket{
+	height: 30vh;
+	margin-left: 11vh;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+}
+
+#artefacts{
+	float: left;
+	height: 30vh;
+	background-color: brown;
+	width: 30vh;
+}
+
+#oracle{
+	background-color: purple;
+	height: 30vh;
+	margin-left: 31vh;
+}
+
+#bottommarket{
+  background-color: aqua;
+  height: 10vh;
+  margin-left: 11vh;
+}
+
+#storage{
+	display: block;
+	height: 10vh;
+	margin-top: 1vh;
+	background-color: white;
+}
+
+#actionLine{
+	position: absolute;
+	bottom: 1vh;
+	left: 0;
+	height: 13vh;
+	width: 98%;
+	margin-left: 1%;
+	border: 2px dashed lightgray;
+}
+
+#actionLine ul{
+	text-align: center;
+}
+
+#actionLine ul li{
+	cursor: pointer;
+	display: inline-block;
+	width: 10vh;
+	height: 10vh;
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-top: 1vh;
+}

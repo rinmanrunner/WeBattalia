@@ -1,0 +1,62 @@
+#greatartefacts{
+	float: left;
+	height: 63vh;
+	margin-top: 1vh;
+	margin-left: 1vh;
+	background-color: green;
+	width: 10vh;
+}
+
+#market{
+	display: block;
+	height: 53vh;
+	margin-top: 1vh;
+	margin-left: 76vh;
+	margin-right: 1vh;
+}
+
+#leftmarket{
+	float: left;
+	height: 52vh;
+	background-color: chocolate;
+	width: 10vh;
+}
+
+#topmarket{
+  background-color: gold;
+  height: 10vh;
+  margin-left: 11vh;
+}
+
+#centermarket{
+	height: 30vh;
+	margin-left: 11vh;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+}
+
+#artefacts{
+	float: left;
+	height: 30vh;
+	background-color: brown;
+	width: 30vh;
+}
+
+#oracle{
+	background-color: purple;
+	height: 30vh;
+	margin-left: 31vh;
+}
+
+#bottommarket{
+  background-color: aqua;
+  height: 10vh;
+  margin-left: 11vh;
+}
+
+#storage{
+	display: block;
+	height: 10vh;
+	margin-top: 1vh;
+	background-color: white;
+}
