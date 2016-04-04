@@ -1,4 +1,4 @@
-// The current player's action line cards.
+// The user's action line cards.
 var actionLine = [];
 
 // Suppress default drop behavior.
@@ -17,26 +17,26 @@ function drop(ev) {
 	// Prevent default browser behavior.
     ev.preventDefault();
 	
-	//Get the target and the target's parent.
+	// Get the target and the target's parent.
     var data = ev.dataTransfer.getData("text");
 	var origin = ev.dataTransfer.getData("origin");
 	var par = ev.target.parentElement.id;
 	
-	//Valid drop zones for cards are in the action line and in the hand.
+	// Valid drop zones for cards are in the action line and in the hand.
 	if(ev.target.id == "actionLine" || ev.target.id == "actionList" || par == "actionList"){
 		document.getElementById("actionList").appendChild(document.getElementById(data));
-		if(origin == "playerHandList"){
-			// The player added a card to the action line.
+		if(origin == "userHandList"){
+			// The user added a card to the action line.
 			cardType = document.getElementById(data).getAttribute("cardtype");
 			actionLine.push(cardType);
 			
 			// Play Audio
 			hear(cardPlace);
 		}
-	}else if(ev.target.id == "playerHand" || ev.target.id == "playerArea" || ev.target.id == "playerHandList" || par == "playerHandList"){
-		document.getElementById("playerHandList").appendChild(document.getElementById(data));
+	}else if(ev.target.id == "userHand" || ev.target.id == "userArea" || ev.target.id == "userHandList" || par == "userHandList"){
+		document.getElementById("userHandList").appendChild(document.getElementById(data));
 		if(origin == "actionList"){
-			// The player removed a card from the action line.
+			// The user removed a card from the action line.
 			cardType = document.getElementById(data).getAttribute("cardtype");
 			for(i = 0; i < actionLine.length; i++){
 				if(cardType == actionLine[i]){
@@ -50,8 +50,8 @@ function drop(ev) {
 		}
 	}
 
-	// If the player's hand is empty we add the empty hand placeholder.
-	handList = document.getElementById("playerHandList");
+	// If the user's hand is empty we add the empty hand placeholder.
+	handList = document.getElementById("userHandList");
 	if(handList.childElementCount <= 1){
 		document.getElementById("emptyHand").style.display = "inline";
 	}else{

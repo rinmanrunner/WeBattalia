@@ -6,10 +6,14 @@
 			<title>WeBattalia | Viewing Match</title>
 			<link rel="stylesheet" type="text/css" href="http://www.nickmacholl.com/webattalia/css/style.css">
 			<link rel="stylesheet" type="text/css" href="http://www.nickmacholl.com/webattalia/css/cards.css">
+			<link rel="stylesheet" type="text/css" href="http://www.nickmacholl.com/webattalia/css/playarea.css">
+			<link rel="stylesheet" type="text/css" href="http://www.nickmacholl.com/webattalia/css/userarea.css">
+			<link rel="stylesheet" type="text/css" href="http://www.nickmacholl.com/webattalia/css/opponents.css">
 			<script src="http://www.nickmacholl.com/webattalia/scripts/webattalia.js"></script>
 			<script src="http://www.nickmacholl.com/webattalia/scripts/util.js"></script>
 			<script src="http://www.nickmacholl.com/webattalia/scripts/market.js"></script>
 			<script src="http://www.nickmacholl.com/webattalia/scripts/audio.js"></script>
+			
 		</head>
 		
 		<header class="banner" style="top:0">
