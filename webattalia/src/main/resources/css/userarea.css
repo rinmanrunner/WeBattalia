@@ -1,0 +1,74 @@
+#userArea{
+	position: absolute;
+	bottom: 1em;
+	left: 0;
+	height: 10vh;
+	width: 100%;
+	background-color: darkgray;
+	border-top: 5px solid darkgray;
+}	
+
+#userHand{
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	margin: auto;
+	width: 50%;
+	height: 10vh;
+	padding: 0;
+	background-color: lightgray;
+}
+
+#userHand ul, #actionLine ul{
+	margin: 0;
+	padding: 0;
+}
+
+#userHand ul li{
+	cursor: pointer;
+	display: inline-block;
+	width: 10vh;
+	height: 10vh;
+	margin-top: -2vh;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+#userHand ul li img, #actionLine ul li img{
+	pointer-events: none;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+#userHand ul #emptyHand{
+	display: none;
+	cursor: default;
+	color: darkgray;
+	font-weight: bold;
+	width: 100%;
+	font-size: 1.5em;
+	line-height: 10vh;
+}
+
+#userShelter, #userNation{
+	float: left;
+	background-color: dimgray;
+	text-align: center;
+	width: 8vh;
+	height: 8vh;
+	margin-right: 15px;
+	margin-top: 1vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 5%;
+}
+
+#userShelter{
+	margin-left: 15px;
+	background-image: url("http://www.nickmacholl.com/webattalia/svg/shelter.svg");
+}
+
+#userNation{
+	background-image: url("http://www.nickmacholl.com/webattalia/svg/nation.svg");
+}

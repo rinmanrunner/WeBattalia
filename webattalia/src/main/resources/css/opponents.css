@@ -1,0 +1,93 @@
+#leaderboard{
+	position: absolute;
+	top: 1em;
+	left: 0;
+	height: 6vh;
+	width: 100%;
+	text-align: justify;
+}
+
+#leaderboard ul{
+	display: table;
+	position: relative;
+	list-style: none;
+	text-align: center;
+	margin: auto;
+	width: 100%;
+	padding: 0;
+}
+
+#leaderboard ul li{
+	display: table-cell;
+	text-align: center;
+	width: 25%;
+}
+
+.emberianPlayer{
+	background-color: #92282D;
+}
+
+.emberianPlayer:hover{
+	background-color: #B73339;
+}
+
+.cloudbornPlayer{
+	background-color: #B18028;
+}
+
+.cloudbornPlayer:hover{
+	background-color: #DEA033;
+}
+
+.barfolkPlayer{
+	background-color: #48663C;
+}
+
+.barfolkPlayer:hover{
+	background-color: #5b804c;
+}
+
+.islanderPlayer{
+	background-color: #406A76;
+}
+
+.islanderPlayer:hover{
+	background-color: #518594;
+}
+
+.emberianPlayer, .cloudbornPlayer, .barfolkPlayer, .islanderPlayer{
+	cursor: pointer;
+	text-align: left;
+	color: white;
+	line-height: 6vh;
+	white-space: nowrap;
+	transition-property: background-color;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in;
+}
+
+.emberianPlayer p, .cloudbornPlayer p, .barfolkPlayer p, .islanderPlayer p{
+	padding: 0;
+	margin: 0;
+}
+
+.emberianPlayer img, .cloudbornPlayer img, .barfolkPlayer img, .islanderPlayer img{
+	float: left;
+	height: 4vh;
+	width: 4vh;
+	margin-left: 5px;
+	margin-right: 10px;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+	border-radius: 50%;
+	border: 2px solid white;
+	line-height: 8vh;
+}
+
+.playerScore{
+	float: right;
+	display: inline-block;
+	margin-right: 10px;
+	font-size: 2em;
+	font-weight: bold;
+}

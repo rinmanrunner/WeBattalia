@@ -5,7 +5,7 @@
 				<ul>
 					<!-- First Player -->
 					<li>
-						<div id="emberianPlayer">
+						<div class="emberianPlayer">
 							<img src="http://avatarfiles.alphacoders.com/488/4887.gif">
 							<div class="playerScore">2</div>
 							<b>TheCowboy</b>
@@ -13,7 +13,7 @@
 					</li>
 					<!-- Second Player -->
 					<li>
-						<div id="cloudbornPlayer">
+						<div class="cloudbornPlayer">
 							<img src="http://www.progarchives.com/forum/uploads/18319/Mr_Blonde_BandW_300.jpeg">
 							<div class="playerScore">2</div>
 							<b>Mr Blonde</b> (You)
@@ -21,7 +21,7 @@
 					</li>
 					<!-- Third Player -->
 					<li>
-						<div id="islanderPlayer">
+						<div class="islanderPlayer">
 							<img src="http://avatarfiles.alphacoders.com/265/26511.gif">
 							<div class="playerScore">3</div>
 							<b>LuigiSux</b>
@@ -29,7 +29,7 @@
 					</li>
 					<!-- Fourth Player -->
 					<li>
-						<div id="barfolkPlayer">
+						<div class="barfolkPlayer">
 							<img src="http://www.webdesignerforum.co.uk/uploads/profile/photo-1407.jpg">
 							<div class="playerScore">6</div>
 							<b>P1X3L</b>
@@ -38,6 +38,7 @@
 				</ul>
 			</div>
 			<div id="playArea">
+				<div id="greatartefacts"></div>
 				<div id="board">
 					<ul>
 						<!-- First Row -->
@@ -98,19 +99,26 @@
 						</li><li></li><br>
 					</ul>
 				</div>
-				<div id="market"></div>
-				<div id="build"></div>
-				<div id="storage"></div>
+				<div id="market">
+					<div id="leftmarket"></div>
+					<div id="topmarket"></div>
+					<div id="centermarket">
+						<div id="artefacts"></div>
+						<div id="oracle"></div>
+					</div>
+					<div id="bottommarket"></div>
+					<div id="storage"></div>
+				</div>
 				<!-- The Action Line -->
 				<div id="actionLine" ondrop="drop(event)" ondragover="allowDrop(event)">
 					<ul id="actionList">
 					</ul>
 				</div>
 			</div>
-			<div id="playerArea" ondrop="drop(event)" ondragover="allowDrop(event)">
-				<!-- Player's Hand -->
-				<div id="playerHand">
-					<ul id="playerHandList">
+			<div id="userArea" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<!-- User's Hand -->
+				<div id="userHand">
+					<ul id="userHandList">
 						<!-- Base Hand -->
 						<li id="c1" class="${card1faction}" cardtype="${card1type}" title="${card1title}" ondragstart="drag(event)" draggable="true"><img src="http://www.nickmacholl.com/webattalia/svg/${card1type}.svg" onerror="this.onerror=null; this.src='http://www.nickmacholl.com/webattalia/png/${card1type}.png">
 						<li id="c2" class="${card2faction}" cardtype="${card2type}" title="${card2title}" ondragstart="drag(event)" draggable="true"><img src="http://www.nickmacholl.com/webattalia/svg/${card2type}.svg" onerror="this.onerror=null; this.src='http://www.nickmacholl.com/webattalia/png/${card2type}.png">
@@ -123,9 +131,9 @@
 						<li id="emptyHand">Your hand is empty.</li>
 					</ul>
 				</div>
-				<!-- Player's Shelter (discard) -->
-				<div id="playerShelter" title="Shelter"></div>
-				<!-- Player's Nation (draw) -->
-				<div id="playerNation" title="Nation"></div>
+				<!-- User's Shelter (discard) -->
+				<div id="userShelter" title="Shelter"></div>
+				<!-- User's Nation (draw) -->
+				<div id="userNation" title="Nation"></div>
 			</div>
 </@layout.masterTemplate>
