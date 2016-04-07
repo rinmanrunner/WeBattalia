@@ -34,6 +34,7 @@ public abstract class Artefact extends Unit {
 		public List<CardType> buildValue(){
 			return buildValue;
 		}
+		public final Card copy(){return new Artefact.Tool(this.faction);}
 	}
 	public static class Weapon extends Artefact {
 		// The weapon is used to start battles
@@ -52,6 +53,7 @@ public abstract class Artefact extends Unit {
 		// The Weapon has one strength and no move
 		public int strength(){return 1;}
 		public final int move(){return 0;}
+		public final Card copy(){return new Artefact.Weapon(this.faction);}
 	}
 	public static class Amulet extends Artefact {
 		public int result = 0;
@@ -69,6 +71,7 @@ public abstract class Artefact extends Unit {
 		// The Amulet has no strength and no move
 		public final int strength(){return 0;}
 		public final int move(){return 0;}
+		public final Card copy(){return new Amulet.Tool(this.faction);}
 		// The amulet can transform a card
 		public List<Card> transform(Card c){
 			List<Card> outCards = new ArrayList<Card>();
@@ -122,7 +125,7 @@ public abstract class Artefact extends Unit {
 		// The Title has no strength or move
 		public final int strength(){return 0;}
 		public final int move(){return 0;}
-
+		public final Card copy(){return new Artefact.Title(this.faction);}
 		public Card upgrade(Card c){
 			// Returns a card with same faction as c but next level up
 			switch (c.type()){
@@ -153,7 +156,8 @@ public abstract class Artefact extends Unit {
 		// The Scroll has no strength or move
 		public final int strength(){return 0;}
 		public final int move(){return 0;}
-
+		public final Card copy(){return new Artefact.Scroll(this.faction);}
+		
 		public Card change(Card c, Faction f){
 			// Returns a card of type c with faction f
 			Card newCard = c;
@@ -184,6 +188,7 @@ public abstract class Artefact extends Unit {
 		// The Tent has no strength or move
 		public final int strength(){return 0;}
 		public final int move(){return 0;}
+		public final Card copy(){return new Artefact.Tent(this.faction);}
 		// The tent can be erected with given contents
 		// (Normally costs a supply). Being illuminated allows two cards
 		public void erect(List<Card> contents){
@@ -222,5 +227,6 @@ public abstract class Artefact extends Unit {
 		// The Horse has 1 strength and 3 move
 		public final int strength(){return 1;}
 		public final int move(){return 3;}
+		public final Card copy(){return new Artefact.Horse(this.faction);}
     }
 }

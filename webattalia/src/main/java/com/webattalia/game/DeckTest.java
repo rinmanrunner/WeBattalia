@@ -33,7 +33,8 @@ public class DeckTest {
 		System.out.println("Player Hand: " + playerHand.getTypes());
 		for(ListIterator<Card> i=allCards.listIterator();i.hasNext();){
 	    	Card cardToBuy = i.next();
-	    	boolean isCovered = cardToBuy.cost().isCovered(playerHand.cards);
+	    	System.out.println(cardToBuy.getId());
+	    	boolean isCovered = cardToBuy.cost().isCovered(playerHand.getCards());
 			//System.out.println("Cost of " + cardToBuy + ": " + cardCost.getPriceList());
 			//System.out.println("Cost Covered?: " + isCovered);
 			if(isCovered){
@@ -57,13 +58,12 @@ public class DeckTest {
 //				//System.out.println("You cannot buy " + cardToBuy);	
 //			}
 //	    }		
-		int startDay = 9;
-		Oracle o = new Oracle(startDay);
+		int startDay = 1;
 		System.out.println("Day " + startDay);
-		System.out.println("Match: " +  o.match() + " Illuminated: " + o.illuminated());
-		o.advance();
+		System.out.println("Match: " +  Oracle.getInstance().match() + " Illuminated: " + Oracle.getInstance().illuminated());
+		Oracle.getInstance().advance();
 		System.out.println("Day " + (startDay+1));		
-		System.out.println("Match: " +  o.match() + " Illuminated: " + o.illuminated());
+		System.out.println("Match: " +  Oracle.getInstance().match() + " Illuminated: " + Oracle.getInstance().illuminated());
 		
 		System.out.println("Road Test");
 		Road.Tee roadTest = new Road.Tee(Faction.BARFOLK);

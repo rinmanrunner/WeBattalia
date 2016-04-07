@@ -6,7 +6,8 @@ import java.util.*;
 // One artefact each day has its power doubled
 // One artefact each day is allowed to have its color selected
 public class Oracle {
-	public int day = 1;//Start at day one
+	private static Oracle instance = null;
+	private int day = 1;//Start at day one
 	private final List<CardType> matchArray = 
 			Arrays.asList(CardType.TOOL, CardType.SCROLL, CardType.WEAPON,
 					CardType.TENT, CardType.AMULET, CardType.HORSE, CardType.TITLE);
@@ -14,12 +15,14 @@ public class Oracle {
 			Arrays.asList(CardType.TOOL, CardType.WEAPON, CardType.AMULET,
 					CardType.TITLE, CardType.SCROLL, CardType.TENT, CardType.HORSE);
 	// start Oracle on default day 1
-	public Oracle(){
+	protected Oracle(){
 		
 	}
-	// start Oracle on specified day
-	public Oracle(int day){
-		this.day = day;
+	public static Oracle getInstance(){
+		if(instance == null){
+			instance = new Oracle();
+		}
+		return instance;
 	}
 	// Advance Oracle one day
 	public void advance(){
@@ -28,6 +31,9 @@ public class Oracle {
 	// Retreat Oracle one day
 	public void retreat(){
 		this.day--;
+	}
+	public void setDay(int day){
+		this.day = day;
 	}
 	// Get the artefact type that is currently matching on the oracle
 	public CardType match(){

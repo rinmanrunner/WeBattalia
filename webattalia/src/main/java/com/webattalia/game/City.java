@@ -10,6 +10,7 @@ public abstract class City extends Road {
 	protected boolean[] connections;//North, East, South, West
 
 	public abstract CardType type();
+	public abstract Card copy();
 	
 	public City(Faction faction)
 	{
@@ -99,6 +100,7 @@ public abstract class City extends Road {
 			super();
 			connections = new boolean[]{true, false, false, false};
 		}
+		public final Card copy(){return new City.End(this.faction);}
 	}
 	public static class Straight extends City {
 		public CardType type() {return CardType.STRAIGHT_ROAD;}
@@ -116,6 +118,7 @@ public abstract class City extends Road {
 			return new Cost(Arrays.asList(
 				       CardType.FRIMAN, CardType.SUPPLY));
 		}
+		public final Card copy(){return new City.Straight(this.faction);}
 	}
 	public static class Curved extends City {
 		public CardType type() {return CardType.CURVED_ROAD;}
@@ -133,7 +136,7 @@ public abstract class City extends Road {
 			return new Cost(Arrays.asList(
 				       CardType.FRIMAN, CardType.SUPPLY));
 		}
-
+		public final Card copy(){return new City.Curved(this.faction);}
 	}
 	public static class Tee extends City {
 		public CardType type() {return CardType.TEE_ROAD;}
@@ -151,6 +154,7 @@ public abstract class City extends Road {
 			return new Cost(Arrays.asList(
 				CardType.FRIMAN, CardType.FRIMAN, CardType.SUPPLY));
 		}
+		public final Card copy(){return new City.Tee(this.faction);}
 	}
 	public static class Cross extends City {
 		public CardType type() {return CardType.CROSS_ROAD;}
@@ -168,5 +172,6 @@ public abstract class City extends Road {
 			return new Cost(Arrays.asList(
 				CardType.FRIMAN, CardType.FRIMAN, CardType.SUPPLY));
 		}
+		public final Card copy(){return new City.Cross(this.faction);}
 	}
 }

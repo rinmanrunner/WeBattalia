@@ -4,21 +4,49 @@ import java.util.*;
 
 public class Deck{
 	// A deck is composed of an array of cards
-	public List<Card> cards;
+	private List<Card> cards;
 
+	public List<Card> getCards(){
+		return cards;
+	}
 	public Deck(List<Card> cards){
 		this.cards = cards;
 	}
-	//Initialize a deck with a specified number[i] of each Card[i] 
-	public Deck(List<Card> cardTypes, int[] numCardType){
-		List<Card> cards = new ArrayList<Card>();
-		for(ListIterator<Card> i=cardTypes.listIterator(); i.hasNext();)
+	//Initialize a deck with a specified number[i] of each CardType[i] and Faction[i] 
+	public Deck(List<CardType> cardTypes, List<Faction> factions, int[] number){
+		List<Card> deckCards = new ArrayList<Card>();
+		for(ListIterator<CardType> i=cardTypes.listIterator(); i.hasNext();)
 		{
-			for(int j=0;j<numCardType[i.nextIndex()];j++){
-				cards.add(cardTypes.get(i.nextIndex()));
+			for(int j=0;j<number[i.nextIndex()];j++){
+				deckCards.add(CardRegistry.getInstance().
+						makeCard(cardTypes.get(i.nextIndex()),
+								factions.get(i.nextIndex())));
 			}
 			i.next();
 		}
+		this.cards = deckCards;
+	}
+	//Initialize a deck with a specified number of each Faction[i] for CardType[ 
+	public Deck(CardType cardType, List<Faction> factions, int number){
+		List<Card> deckCards = new ArrayList<Card>();
+		for(ListIterator<Faction> i=factions.listIterator(); i.hasNext();)
+		{
+			for(int j=0;j<number;j++){
+				deckCards.add(CardRegistry.getInstance().
+						makeCard(cardType,
+								factions.get(i.nextIndex())));
+			}
+			i.next();
+		}
+		this.cards = deckCards;
+	}
+	//Initialize a deck with a number of cardType and faction
+	public Deck(CardType cardType, Faction faction, int number){
+		List<Card> deckCards = new ArrayList<Card>();
+		for(int i=0;i<number;i++){
+			deckCards.add(CardRegistry.getInstance().makeCard(cardType,faction));
+		}
+		this.cards = deckCards;
 	}
 	// Shuffle the deck of cards using the Collections class
 	public void shuffle(){
@@ -62,6 +90,26 @@ public class Deck{
 		}
 		//System.out.println(f + " not in deck. Dealing top card");
 		return deal();
+	}
+	
+	// Add a card to the bottom of the deck
+	public void addCard(Card card){
+		cards.add(card);
+	}
+	
+	// Add a card to the top of the deck
+	public void addCardToTop(Card card){
+		cards.add(0,card);
+	}
+	
+	// Add multiple cards to the bottom of the deck
+	public void addCards(List<Card> cards){
+		cards.addAll(cards);
+	}
+	
+	// Add multiple cards to the top of the deck
+	public void addCardsToTop(List<Card> cards){
+		cards.addAll(0,cards);
 	}
 	
 	//Prints out the cards in the deck to the screen
