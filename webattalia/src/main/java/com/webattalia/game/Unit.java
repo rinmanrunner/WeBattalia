@@ -6,6 +6,7 @@ public abstract class Unit extends Card {
 	// Units have strength and move in addition to card properties
 	public abstract int strength();
 	public abstract int move();
+	public abstract Card copy();
 	
 	public Unit(){super();}
 	public Unit(Faction faction){super(faction);}
@@ -20,6 +21,7 @@ public abstract class Unit extends Card {
 		// Supply have strength 0, and can move heroes 1
 		public final int strength(){return 0;}
 		public final int move(){return 1;}
+		public final Card copy(){return new Unit.Supply();};
 	}
 	public static class Friman extends Unit{
 		public final CardType type(){return CardType.FRIMAN;}
@@ -35,6 +37,7 @@ public abstract class Unit extends Card {
 		// Frimen have strength 1 and move 0
 		public final int strength(){return 1;}
 		public final int move(){return 0;}
+		public final Card copy(){return new Unit.Friman(this.faction);}
 	}
 	public static class Chief extends Unit{
 		public final CardType type(){return CardType.CHIEF;}
@@ -51,6 +54,7 @@ public abstract class Unit extends Card {
 		// Chief has strength 2 and move 0
 		public final int strength(){return 2;}
 		public final int move(){return 0;}
+		public final Card copy(){return new Unit.Chief(this.faction);}
 	}
 	public static class Priest extends Unit{
 		public final CardType type(){return CardType.PRIEST;}
@@ -68,6 +72,7 @@ public abstract class Unit extends Card {
 		// Priest has strength 3 and move 0
 		public final int strength(){return 3;}
 		public final int move(){return 0;}
+		public final Card copy(){return new Unit.Priest(this.faction);}
 	}
 	public static class Lord extends Unit{
 		public final CardType type(){return CardType.LORD;}
@@ -86,5 +91,6 @@ public abstract class Unit extends Card {
 		// Lord has strength 4 and move 0
 		public final int strength(){return 4;}
 		public final int move(){return 0;}
+		public final Card copy(){return new Unit.Lord(this.faction);}
 	}
 }

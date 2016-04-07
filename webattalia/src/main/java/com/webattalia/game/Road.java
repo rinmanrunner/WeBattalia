@@ -7,6 +7,7 @@ public abstract class Road extends Card {
 
 	public abstract Cost cost();
 	public abstract CardType type();
+	public abstract Card copy();
 	
 	public Road(Faction faction)
 	{
@@ -49,6 +50,7 @@ public abstract class Road extends Card {
 			return new Cost(Arrays.asList(
 				       CardType.FRIMAN, CardType.SUPPLY));
 		}
+		public final Card copy(){return new Road.Straight(this.faction);}
 	}
 	public static class Curved extends Road {
 		public CardType type() {return CardType.CURVED_ROAD;}
@@ -66,7 +68,7 @@ public abstract class Road extends Card {
 			return new Cost(Arrays.asList(
 				       CardType.FRIMAN, CardType.SUPPLY));
 		}
-
+		public final Card copy(){return new Road.Curved(this.faction);}
 	}
 	public static class Tee extends Road {
 		public CardType type() {return CardType.TEE_ROAD;}
@@ -84,6 +86,7 @@ public abstract class Road extends Card {
 			return new Cost(Arrays.asList(
 				CardType.FRIMAN, CardType.FRIMAN, CardType.SUPPLY));
 		}
+		public final Card copy(){return new Road.Tee(this.faction);}
 	}
 	public static class Cross extends Road {
 		public CardType type() {return CardType.CROSS_ROAD;}
@@ -101,5 +104,6 @@ public abstract class Road extends Card {
 			return new Cost(Arrays.asList(
 				CardType.FRIMAN, CardType.FRIMAN, CardType.SUPPLY));
 		}
+		public final Card copy(){return new Road.Cross(this.faction);}
 	}
 }
