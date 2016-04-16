@@ -11,127 +11,39 @@ public class Cost {
 	public Cost(List<CardType> priceList){
 		this.priceList = priceList;
 	}
-//	public Cost(CardType c){
-//		this.cardType = c;
-//		this.action = null;
-//	}
-//	public Cost(ActionType a){
-//		this.action = a;
-//		this.cardType = null;
-//	}
-//
-//	public void setCardType(CardType c){
-//		this.cardType = c;
-//		this.action = null;
-//	}
-//	public void setAction(ActionType a){
-//		this.cardType = null;
-//		this.action = a;
-//	}
 	//priceList is determined by the Cost object's cardType or ActionType
 	public List<CardType> getPriceList(){
 		return priceList;
 	}
-//		List<CardType> priceList = new ArrayList<CardType>();
-//		if(cardType != null)
-//		{
-//			switch (cardType){
-//				case SUPPLY:
-//					priceList.add(CardType.NONE);
-//					break;
-//				case FRIMAN:
-//					priceList.add(CardType.SUPPLY);
-//					priceList.add(CardType.SUPPLY);
-//					break;
-//				case CHIEF:
-//					priceList.add(CardType.SUPPLY);
-//					priceList.add(CardType.SUPPLY);
-//					priceList.add(CardType.SUPPLY);
-//					break;
-//				case PRIEST:
-//					priceList.add(CardType.SUPPLY);
-//					priceList.add(CardType.SUPPLY);
-//					priceList.add(CardType.SUPPLY);
-//					priceList.add(CardType.SUPPLY);
-//					break;
-//				case LORD:
-//					priceList.add(CardType.SUPPLY);
-//					priceList.add(CardType.SUPPLY);
-//					priceList.add(CardType.SUPPLY);
-//					priceList.add(CardType.SUPPLY);
-//					priceList.add(CardType.SUPPLY);
-//					break;
-//				case TOOL:
-//					priceList.add(CardType.FRIMAN);
-//					priceList.add(CardType.FRIMAN);
-//					priceList.add(CardType.FRIMAN);
-//					break;
-//				case WEAPON:
-//					priceList.add(CardType.CHIEF);
-//					priceList.add(CardType.FRIMAN);
-//					priceList.add(CardType.FRIMAN);
-//					break;
-//				case AMULET:
-//					priceList.add(CardType.PRIEST);
-//					priceList.add(CardType.FRIMAN);
-//					priceList.add(CardType.FRIMAN);
-//					break;
-//				case TITLE:
-//					priceList.add(CardType.LORD);
-//					priceList.add(CardType.FRIMAN);
-//					priceList.add(CardType.FRIMAN);
-//					break;
-//				case SCROLL:
-//					priceList.add(CardType.PRIEST);
-//					priceList.add(CardType.CHIEF);
-//					priceList.add(CardType.FRIMAN);
-//					break;
-//				case TENT:
-//					priceList.add(CardType.CHIEF);
-//					priceList.add(CardType.FRIMAN);
-//					priceList.add(CardType.SUPPLY);
-//					break;
-//				case HORSE:
-//					priceList.add(CardType.CHIEF);
-//					priceList.add(CardType.SUPPLY);
-//					priceList.add(CardType.SUPPLY);
-//					break;
-//				case SIMPLE_ROAD:
-//					priceList.add(CardType.FRIMAN);
-//					priceList.add(CardType.SUPPLY);
-//					break;
-//				case COMPLEX_ROAD:
-//					priceList.add(CardType.FRIMAN);
-//					priceList.add(CardType.FRIMAN);
-//					priceList.add(CardType.SUPPLY);
-//					break;
-//				case CITY_ONE:
-//					priceList.add(CardType.FRIMAN);
-//					priceList.add(CardType.FRIMAN);
-//					priceList.add(CardType.FRIMAN);
-//					break;
-//				case CITY_TWO:
-//					priceList.add(CardType.CHIEF);
-//					priceList.add(CardType.CHIEF);
-//					priceList.add(CardType.CHIEF);
-//					break;
-//				case CITY_THREE:
-//					priceList.add(CardType.PRIEST);
-//					priceList.add(CardType.PRIEST);
-//					priceList.add(CardType.PRIEST);
-//					break;
-//				case CITY_FOUR:
-//					priceList.add(CardType.LORD);
-//					priceList.add(CardType.LORD);
-//					priceList.add(CardType.LORD);
-//					break;
-//			default:
-//				priceList.add(CardType.NONE);
-//				break;
-//			
-//			}
-//		}
-//		else{
+	// Returns true if the specified list of cards contains the priceList
+	public boolean isCovered(List<? extends Card> cards){
+		//Build list of card types
+		List<CardType> types = new ArrayList<CardType>();
+		for(ListIterator<? extends Card> i=cards.listIterator(); i.hasNext();)
+		{
+			CardType newType = i.next().type();
+			// if it is a tool, then add buildValue to list, otherwise add type
+			if(newType.equals(CardType.TOOL)){
+				Artefact.Tool tool = (Artefact.Tool)cards.get(i.previousIndex());
+				types.addAll(tool.buildValue());
+			}
+			else{
+				types.add(newType);				
+			}
+
+		}
+		// Loop over priceList and compare to types, removing matches along the way
+		for(ListIterator<CardType> i=getPriceList().listIterator(); i.hasNext();)
+		{
+			if(types.contains(i.next())){
+				types.remove(getPriceList().get(i.previousIndex()));
+			}
+			else{
+				return false;
+			}		
+		}
+		return true;
+	}
 //			switch (action){
 //				case SUMMON_HERO:
 //					priceList.add(CardType.WEAPON);
@@ -197,24 +109,4 @@ public class Cost {
 //		}
 //		return priceList;
 //	}
-	// Returns true if the specified list of cards contains the priceList
-	public boolean isCovered(List<Card> cards){
-		//Build list of card types
-		List<CardType> types = new ArrayList<CardType>();
-		for(ListIterator<Card> i=cards.listIterator(); i.hasNext();)
-		{
-			types.add(i.next().type());
-		}
-		// Loop over priceList and compare to types, removing matches along the way
-		for(ListIterator<CardType> i=getPriceList().listIterator(); i.hasNext();)
-		{
-			if(types.contains(i.next())){
-				types.remove(getPriceList().get(i.previousIndex()));
-			}
-			else{
-				return false;
-			}		
-		}
-		return true;
-	}
 }

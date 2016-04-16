@@ -7,29 +7,36 @@ public class Market {
 	private List<Deck> decks;
 	// Contains the limbo where cards are discarded permanently
 	private Deck limbo;
-	private static Market instance = null;
+	//private static Market instance = null;
 	private int numPlayers;
-	protected Market(){
-		//Used to protect against instantiation
+//	protected Market(){
+//		//Used to protect against instantiation
+//	}
+//	// Initialize Decks for specified numPlayers
+//	protected Market(int numPlayers){
+//		setPlayers(numPlayers);
+//		//Used to protect against instantiation
+//	}
+//	// Create a four player market if none exists
+//	public static Market getInstance(){
+//		if(instance == null){
+//			instance = new Market(4);
+//		}
+//		return instance;
+//	}
+//	// Create a n-player market if none exists
+//	public static Market getInstance(int numPlayers){
+//		if(instance == null){
+//			instance = new Market(numPlayers);
+//		}
+//		return instance;
+//	}
+	public Market(){
+		setPlayers(4);
 	}
 	// Initialize Decks for specified numPlayers
-	protected Market(int numPlayers){
+	public Market(int numPlayers){
 		setPlayers(numPlayers);
-		//Used to protect against instantiation
-	}
-	// Create a four player market if none exists
-	public static Market getInstance(){
-		if(instance == null){
-			instance = new Market(4);
-		}
-		return instance;
-	}
-	// Create a n-player market if none exists
-	public static Market getInstance(int numPlayers){
-		if(instance == null){
-			instance = new Market(numPlayers);
-		}
-		return instance;
 	}
 	public void setPlayers(int numPlayers){
 		this.numPlayers = numPlayers;
@@ -97,6 +104,9 @@ public class Market {
 			}
 		}
 		return null;
+	}
+	public List<Deck> getDecks(){
+		return decks;
 	}
 	public void shuffleAll(){
 		for(ListIterator<Deck> i=decks.listIterator(); i.hasNext();){

@@ -34,7 +34,7 @@ public abstract class Artefact extends Unit {
 		public List<CardType> buildValue(){
 			return buildValue;
 		}
-		public final Card copy(){return new Artefact.Tool(this.faction);}
+		public final Artefact copy(){return new Artefact.Tool(this.faction);}
 	}
 	public static class Weapon extends Artefact {
 		// The weapon is used to start battles
@@ -53,10 +53,10 @@ public abstract class Artefact extends Unit {
 		// The Weapon has one strength and no move
 		public int strength(){return 1;}
 		public final int move(){return 0;}
-		public final Card copy(){return new Artefact.Weapon(this.faction);}
+		public final Artefact copy(){return new Artefact.Weapon(this.faction);}
 	}
 	public static class Amulet extends Artefact {
-		public int result = 0;
+		private int result = 0;
 		public final CardType type(){return CardType.AMULET;}
 		public Amulet(Faction faction){super(faction);}
 		// Select random faction
@@ -71,19 +71,42 @@ public abstract class Artefact extends Unit {
 		// The Amulet has no strength and no move
 		public final int strength(){return 0;}
 		public final int move(){return 0;}
-		public final Card copy(){return new Amulet.Tool(this.faction);}
+		public final Artefact copy(){return new Artefact.Amulet(this.faction);}
 		// The amulet can transform a card
-		public List<Card> transform(Card c){
-			List<Card> outCards = new ArrayList<Card>();
-			this.result = roll();
-			switch (this.result){
-				case 3: // Triple the card
-					outCards.add(c);
-				case 2: // Double the card
-					outCards.add(c);				
+		// Roll the die randomly. Should only be done when
+		// transformation occurs
+		private int roll(){
+			Random rand = new Random();
+			result = rand.nextInt(6)+1;
+			return result;
+		}
+		// Get result of the die roll
+		public int getResult(){
+			return result;
+		}
+		// Roll the die and transform the card
+		public List<Unit> transform(Unit u, Assets a){
+			List<Unit> outUnits = new ArrayList<Unit>();
+			int rollResult = roll();
+			switch (rollResult){
 				case 1: // Card unchanged
-					outCards.add(c);
-					return outCards;
+					outUnits.add(u);
+					return outUnits;
+				case 2: // Double the card
+					Unit virtualCard1 = u.copy();
+					virtualCard1.isVirtual = true;
+					outUnits.add(u);
+					outUnits.add(virtualCard1);	
+					return outUnits;
+				case 3: // Triple the card
+					Unit virtualCard2 = u.copy();
+					virtualCard2.isVirtual = true;
+					Unit virtualCard3 = u.copy();
+					virtualCard3.isVirtual = true;
+					outUnits.add(u);
+					outUnits.add(virtualCard2);	
+					outUnits.add(virtualCard3);
+					return outUnits;
 				case 4:
 					//Send card to ambush
 					// Needs Assets of player to work
@@ -96,17 +119,15 @@ public abstract class Artefact extends Unit {
 					return null;
 				case 6:
 					//Wild Card
-					outCards.add(new WildCard(c));
-					return outCards;
+					outUnits.add(new WildCard(u));
+					return outUnits;
 				default:
 					return null;
 			}
 		}
-		// Roll the die randomly
-		public int roll(){
-			Random rand = new Random();
-			this.result = rand.nextInt(6)+1;
-			return this.result;
+
+		public void reset(){
+			this.result = 0;
 		}
 	}
     public static class Title extends Artefact {
@@ -125,18 +146,22 @@ public abstract class Artefact extends Unit {
 		// The Title has no strength or move
 		public final int strength(){return 0;}
 		public final int move(){return 0;}
-		public final Card copy(){return new Artefact.Title(this.faction);}
-		public Card upgrade(Card c){
-			// Returns a card with same faction as c but next level up
-			switch (c.type()){
+		public final Artefact copy(){return new Artefact.Title(this.faction);}
+		public Unit upgrade(Unit u, Market m){
+			// Retrieves a card from the market with same faction as c but next level up
+			// The other card is returned to the bottom of the deck to which it belongs
+			switch (u.type()){
 				case FRIMAN:
-					return new Unit.Chief(c.faction);
+					m.getDeck(CardType.FRIMAN).addCard(u);
+					return (Unit)m.getDeck(CardType.CHIEF).dealFaction(u.faction);
 				case CHIEF:
-					return new Unit.Priest(c.faction);
+					m.getDeck(CardType.CHIEF).addCard(u);
+					return (Unit)m.getDeck(CardType.PRIEST).dealFaction(u.faction);
 				case PRIEST:
-					return new Unit.Lord(c.faction);
+					m.getDeck(CardType.PRIEST).addCard(u);
+					return (Unit)m.getDeck(CardType.LORD).dealFaction(u.faction);
 				default:
-					return c;
+					return u;
 			}
 		}
 	}
@@ -156,17 +181,22 @@ public abstract class Artefact extends Unit {
 		// The Scroll has no strength or move
 		public final int strength(){return 0;}
 		public final int move(){return 0;}
-		public final Card copy(){return new Artefact.Scroll(this.faction);}
+		public final Artefact copy(){return new Artefact.Scroll(this.faction);}
 		
-		public Card change(Card c, Faction f){
-			// Returns a card of type c with faction f
-			Card newCard = c;
-			newCard.faction = f;
+		public Card change(Card c, Faction f, Market m){
+			// Retrieves card from market of same type but of specified faction
+			// Deck is shuffled
+			Card newCard = m.getDeck(c.type()).dealFaction(f);
+			m.getDeck(c.type()).addCard(c);
+			m.getDeck(c.type()).shuffle();
 			return newCard;
 		}
-		public Card changeSelf(Faction f){
+		public Card changeSelf(Faction f, Market m){
 			// Returns a scroll with faction f
-			return new Artefact.Scroll(f);
+			Card newCard = m.getDeck(CardType.SCROLL).dealFaction(f);
+			m.getDeck(this.type()).addCard(this);
+			m.getDeck(this.type()).shuffle();
+			return newCard;
 		}
     }
     public static class Tent extends Artefact {
@@ -188,7 +218,7 @@ public abstract class Artefact extends Unit {
 		// The Tent has no strength or move
 		public final int strength(){return 0;}
 		public final int move(){return 0;}
-		public final Card copy(){return new Artefact.Tent(this.faction);}
+		public final Artefact copy(){return new Artefact.Tent(this.faction);}
 		// The tent can be erected with given contents
 		// (Normally costs a supply). Being illuminated allows two cards
 		public void erect(List<Card> contents){
@@ -227,6 +257,6 @@ public abstract class Artefact extends Unit {
 		// The Horse has 1 strength and 3 move
 		public final int strength(){return 1;}
 		public final int move(){return 3;}
-		public final Card copy(){return new Artefact.Horse(this.faction);}
+		public final Artefact copy(){return new Artefact.Horse(this.faction);}
     }
 }
